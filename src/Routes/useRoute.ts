@@ -9,7 +9,7 @@ let router = express.Router()
 
 // Student Section
 // get all students
-router.get('/', getAllStd)
+router.get('/', validate(RegisterTypes), getAllStd)
 // add student
 router.post('/add', addStd)
 // get student by id
