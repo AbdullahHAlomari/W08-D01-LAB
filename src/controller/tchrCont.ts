@@ -30,3 +30,4 @@ export const getTchrById = async(req:Request,res:Response) =>{
     })
     res.json(teacher)
 }
+

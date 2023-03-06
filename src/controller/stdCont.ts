@@ -12,12 +12,14 @@ export const getAllStd = async(req:Request,res:Response) =>{
 }
 
 export const addStd = async(req:Request,res:Response) =>{
-    const {name, age, major} = req.body
+    const {name, age, major, classroomID} = req.body
     const user = await prisma.student.create({
         data:{
             name,
             age,
             major,
+            classroomID
+            
         }
     })
     res.json(user)

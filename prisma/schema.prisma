@@ -13,13 +13,34 @@ model classroom {
 }
 
 model student {
-  id    String @id @default(uuid())
-  name  String
-  major String
-  age   Int
+  id          String @id @default(uuid())
+  name        String
+  major       String
+  age         Int
+  classroomID String @default(uuid())
+
+  @@index([classroomID], map: "student_classroomID_fkey")
 }
 
 model teacher {
-  id   String @id @default(uuid())
-  name String
+  id          String @id @default(uuid())
+  name        String
+  classroomID String @default(uuid())
+
+  @@index([classroomID], map: "teacher_classroomID_fkey")
+}
+
+model user {
+  userid      String @id @default(uuid())
+  username    String @unique
+  description String
+  role        String
+  profileID   String
+
+  @@index([profileID], map: "user_profileID_fkey")
+}
+
+model profile {
+  id     String @id @default(uuid())
+  skills String
 }
